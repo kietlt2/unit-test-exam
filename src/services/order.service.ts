@@ -16,15 +16,15 @@ export class OrderService {
 
     let totalPrice = order.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-    if (totalPrice <= 0) {
-      throw new Error('Total price must be greater than 0');
-    }
+    // if (totalPrice <= 0) {
+    //   throw new Error('Total price must be greater than 0');
+    // }
 
     if (order.couponId) {
       const response = await fetch(`https://67eb7353aa794fb3222a4c0e.mockapi.io/coupons/${order.couponId}`)
       const coupon = await response.json();
 
-      if (!coupon) {
+      if (!coupon ||  typeof coupon === 'string') {
         throw new Error('Invalid coupon');
       }
 
@@ -34,6 +34,7 @@ export class OrderService {
         totalPrice = 0;
       }
     }
+
 
     const orderPayload = {
       ...order,
