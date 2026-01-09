@@ -1,3 +1,39 @@
+# 🧪 Unit Test Exam (Vitest)
+
+![CI](https://github.com/kietlt2/unit-test-exam/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://github.com/kietlt2/unit-test-exam/actions/workflows/coverage.yml/badge.svg)
+
+## 📌 Overview
+
+This project demonstrates **unit testing best practices** using:
+
+- **Vitest**
+- **coverage-v8**
+- **GitHub Actions CI**
+- **GitHub Pages for coverage report**
+
+It is designed as a reference for:
+- Writing meaningful unit tests
+- Handling edge cases & branches
+- Automating test & coverage pipelines
+
+---
+
+## 🧰 Tech Stack
+
+- Node.js `>=18`
+- TypeScript
+- Vitest
+- @vitest/coverage-v8
+
+---
+
+## 🚀 Scripts
+
+```bash
+npm run test           # run tests
+npm run test:coverage  # run tests with coverage
+
 ## Tiêu chí để đánh giá
 
 - [x] Danh sách các checklist (test cases) trước khi viết unit test.
