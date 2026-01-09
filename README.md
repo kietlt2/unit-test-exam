@@ -1,6 +1,5 @@
 # 🧪 Unit Test Exam (Vitest)
 
-![CI](https://github.com/kietlt2/unit-test-exam/actions/workflows/ci.yml/badge.svg)
 ![Coverage](https://github.com/kietlt2/unit-test-exam/actions/workflows/coverage.yml/badge.svg)
 
 ## 📌 Overview
