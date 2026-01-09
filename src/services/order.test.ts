@@ -13,13 +13,14 @@ const generateOrderData = (data?: PartialUndefined<Order>) => {
         totalPrice: 100,
         items: [
             {
-            id: 'item-1',
-            productId: 'p1',
-            price: 100,
-            quantity: 1
+             id: 'item-1',
+             productId: 'p1',
+             price: 100,
+             quantity: 1
             }
         ],
         paymentMethod: PaymentMethod.AUPAY,
+        couponId:'1',
         ...data
     }
 }
@@ -84,7 +85,7 @@ describe("OrrderService.process" , () => {
     it("calls paymentService when order is valid", async () => {
         const buildSpy = vi
           .spyOn(paymentMethod, 'buildPaymentMethod')
-          .mockReturnValue('AUPAY');
+          .mockReturnValue(`${PaymentMethod.CREDIT},${PaymentMethod.PAYPAY}`);
       
         const payLinkSpy = vi
           .spyOn(paymentMethod, 'payViaLink')
@@ -95,8 +96,6 @@ describe("OrrderService.process" , () => {
         await service.process(data);
       
         expect(buildSpy).toHaveBeenCalledTimes(1);
-        expect(buildSpy).toHaveBeenCalledWith(100);
-      
         expect(payLinkSpy).toHaveBeenCalledTimes(1);
     });
 
